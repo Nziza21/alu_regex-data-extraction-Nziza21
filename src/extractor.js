@@ -7,7 +7,7 @@ const rawText = fs.readFileSync(inputFilePath, "utf-8");
 
 console.log(chalk.green.bold("Input file loaded successfully!\n"));
 
-// Function to print each section neatly
+// Function to print each section
 function printSection(title, items) {
   console.log(chalk.cyan("=============================="));
   console.log(chalk.magenta(title));
