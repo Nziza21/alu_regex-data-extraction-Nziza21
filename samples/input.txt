@@ -1,8 +1,8 @@
-User registration completed for john.doe@example.com at 14:30 on 2026-01-25.
-Secondary contact email: admin.support@company.co.uk
+User registration completed for nziza.samuel@example.com at 14:30 on 2026-01-25.
+Secondary contact email: samuel.nziza@company.co.uk
 
-The user visited https://www.example.com/home and later accessed
-https://blog.example.org/posts?id=23.
+The user visited https://nziza-portfolio.dev/projects and later accessed
+https://api.randomlogs.io/v1/users?id=4821.
 
 For assistance, call (123) 456-7890 or 123-456-7890 during office hours.
 Emergency line: 123.456.7890
