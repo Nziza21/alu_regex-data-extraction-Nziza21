@@ -15,6 +15,9 @@ Meeting scheduled for 2:30 PM tomorrow.
 Backup starts at 23:59 daily.
 
 Suspicious input detected:
+<p>Welcome to the site!</p>
+<div class="example">Content here</div>
+<img src="image.jpg" alt="description">
 <script>alert("This should not be executed")</script>
 
 Invalid email example: user@@example..com

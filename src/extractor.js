@@ -96,3 +96,17 @@ const times = rawText.match(timeRegex) || [];
 // Log results
 console.log("Extracted times:");
 console.log(times, "\n");
+
+// --------------------
+// HTML tag extraction
+// --------------------
+
+// Matches all HTML tags like <p>, <div class="example">, <img src="...">, <script>
+const htmlTagRegex = /<[^>]+>/g;
+
+// Extract HTML tags
+const htmlTags = rawText.match(htmlTagRegex) || [];
+
+// Log results
+console.log("Extracted HTML tags:");
+console.log(htmlTags, "\n");
