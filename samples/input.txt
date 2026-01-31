@@ -20,5 +20,8 @@ Suspicious input detected:
 <img src="image.jpg" alt="description">
 <script>alert("This should not be executed")</script>
 
+Today's project updates: #regex #javascript #aluHackathon
+Remember to check #codingTips and #StudentProject
+
 Invalid email example: user@@example..com
 Invalid URL example: javascript:alert('hack')

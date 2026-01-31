@@ -110,3 +110,17 @@ const htmlTags = rawText.match(htmlTagRegex) || [];
 // Log results
 console.log("Extracted HTML tags:");
 console.log(htmlTags, "\n");
+
+// --------------------
+// Hashtag extraction
+// --------------------
+
+// Matches hashtags starting with # followed by letters or numbers
+const hashtagRegex = /#\w+/g;
+
+// Extract hashtags
+const hashtags = rawText.match(hashtagRegex) || [];
+
+// Log results
+console.log("Extracted hashtags:");
+console.log(hashtags, "\n");
