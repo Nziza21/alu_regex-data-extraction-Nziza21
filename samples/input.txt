@@ -1,5 +1,5 @@
 User registration completed for nziza.samuel@example.com at 14:30 on 2026-01-25.
-Secondary contact email: samuel.nziza@company.co.uk
+Secondary contact email: samuel.nziza@company.co.rw
 
 The user visited https://nziza-portfolio.dev/projects and later accessed
 https://api.randomlogs.io/v1/users?id=4821.

@@ -1,126 +1,59 @@
-// extractor.js
-// Reads raw text input and prepares it for regex extraction
-
 const fs = require("fs");
 const path = require("path");
+const chalk = require("chalk");
 
-// Path to the input text file
 const inputFilePath = path.join(__dirname, "../samples/input.txt");
-
-// Read the file as plain text
 const rawText = fs.readFileSync(inputFilePath, "utf-8");
 
-// Simple confirmation
-console.log("Input file loaded successfully.\n");
+console.log(chalk.green.bold("Input file loaded successfully!\n"));
 
-// --------------------
-// Email extraction
-// --------------------
+// Function to print each section neatly
+function printSection(title, items) {
+  console.log(chalk.cyan("=============================="));
+  console.log(chalk.magenta(title));
+  if (items.length === 0) {
+    console.log(chalk.gray("No matches found."));
+  } else {
+    items.forEach(item => console.log(chalk.yellow(item)));
+  }
+  console.log();
+}
 
-// This regex matches common email formats like:
-// john.doe@example.com
-// admin.support@company.co.uk
+// Emails
 const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g;
-
-// Extract all matching emails from the raw text
 const emails = rawText.match(emailRegex) || [];
+printSection("Extracted Emails", emails);
 
-// Log the results
-console.log("Extracted emails:");
-console.log(emails, "\n");
-
-// --------------------
-// URL extraction
-// --------------------
-
-// This regex matches URLs that start with http or https
-// It avoids javascript: and other unsafe protocols
+// URLs
 const urlRegex = /\bhttps?:\/\/[^\s"<>()]+\b/g;
-
-// Extract URLs from the raw text
 const urls = rawText.match(urlRegex) || [];
+printSection("Extracted URLs", urls);
 
-// Log the results
-console.log("Extracted URLs:");
-console.log(urls, "\n");
-
-// --------------------
-// Phone number extraction
-// --------------------
-
-// Matches:
-// 078 123 4567
-// 078-765-4321
-// +250 78 987 6543
+// Phone numbers
 const rwandaPhoneRegex = /\b(?:\+250\s?)?0\d{2}[-\s]?\d{3}[-\s]?\d{4}\b/g;
-
-// Extract phone numbers from raw text
 const phoneNumbers = rawText.match(rwandaPhoneRegex) || [];
+printSection("Extracted Phone Numbers", phoneNumbers);
 
-// Log results
-console.log("Extracted phone numbers:");
-console.log(phoneNumbers, "\n");
-
-// --------------------
-// Credit card number extraction
-// --------------------
-
-// Matches 16-digit credit card numbers with spaces or dashes
+// Credit cards
 const ccRegex = /\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b/g;
-
-// Extract credit cards
 const creditCards = rawText.match(ccRegex) || [];
-
-// Mask all but last 4 digits for security
 const maskedCards = creditCards.map(cc => {
-  // Remove spaces/dashes, keep last 4 digits
   const digitsOnly = cc.replace(/[-\s]/g, "");
-  const last4 = digitsOnly.slice(-4);
-  return "**** **** **** " + last4;
+  return "**** **** **** " + digitsOnly.slice(-4);
 });
+printSection("Extracted Credit Cards (masked)", maskedCards);
 
-// Log results
-console.log("Extracted credit cards (masked):");
-console.log(maskedCards, "\n");
-
-// --------------------
-// Time extraction
-// --------------------
-
-// Matches 24-hour (HH:MM) or 12-hour (H:MM AM/PM) formats
+// Times
 const timeRegex = /\b(?:[01]?\d|2[0-3]):[0-5]\d(?:\s?[AP]M)?\b/gi;
-
-// Extract time strings
 const times = rawText.match(timeRegex) || [];
+printSection("Extracted Times", times);
 
-// Log results
-console.log("Extracted times:");
-console.log(times, "\n");
-
-// --------------------
-// HTML tag extraction
-// --------------------
-
-// Matches all HTML tags like <p>, <div class="example">, <img src="...">, <script>
+// HTML tags
 const htmlTagRegex = /<[^>]+>/g;
-
-// Extract HTML tags
 const htmlTags = rawText.match(htmlTagRegex) || [];
+printSection("Extracted HTML Tags", htmlTags);
 
-// Log results
-console.log("Extracted HTML tags:");
-console.log(htmlTags, "\n");
-
-// --------------------
-// Hashtag extraction
-// --------------------
-
-// Matches hashtags starting with # followed by letters or numbers
+// Hashtags
 const hashtagRegex = /#\w+/g;
-
-// Extract hashtags
 const hashtags = rawText.match(hashtagRegex) || [];
-
-// Log results
-console.log("Extracted hashtags:");
-console.log(hashtags, "\n");
+printSection("Extracted Hashtags", hashtags);
