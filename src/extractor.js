@@ -12,3 +12,19 @@ const rawText = fs.readFileSync(inputFilePath, "utf-8");
 
 // Simple confirmation
 console.log("Input file loaded successfully.\n");
+
+// --------------------
+// Email extraction
+// --------------------
+
+// This regex matches common email formats like:
+// john.doe@example.com
+// admin.support@company.co.uk
+const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g;
+
+// Extract all matching emails from the raw text
+const emails = rawText.match(emailRegex) || [];
+
+// Log the results
+console.log("Extracted emails:");
+console.log(emails, "\n");
