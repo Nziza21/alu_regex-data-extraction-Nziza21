@@ -45,7 +45,7 @@ console.log("Extracted URLs:");
 console.log(urls, "\n");
 
 // --------------------
-// Rwandan phone number extraction
+// Phone number extraction
 // --------------------
 
 // Matches:
@@ -60,3 +60,25 @@ const phoneNumbers = rawText.match(rwandaPhoneRegex) || [];
 // Log results
 console.log("Extracted phone numbers:");
 console.log(phoneNumbers, "\n");
+
+// --------------------
+// Credit card number extraction
+// --------------------
+
+// Matches 16-digit credit card numbers with spaces or dashes
+const ccRegex = /\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b/g;
+
+// Extract credit cards
+const creditCards = rawText.match(ccRegex) || [];
+
+// Mask all but last 4 digits for security
+const maskedCards = creditCards.map(cc => {
+  // Remove spaces/dashes, keep last 4 digits
+  const digitsOnly = cc.replace(/[-\s]/g, "");
+  const last4 = digitsOnly.slice(-4);
+  return "**** **** **** " + last4;
+});
+
+// Log results
+console.log("Extracted credit cards (masked):");
+console.log(maskedCards, "\n");
