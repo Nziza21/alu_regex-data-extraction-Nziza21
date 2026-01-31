@@ -82,3 +82,17 @@ const maskedCards = creditCards.map(cc => {
 // Log results
 console.log("Extracted credit cards (masked):");
 console.log(maskedCards, "\n");
+
+// --------------------
+// Time extraction
+// --------------------
+
+// Matches 24-hour (HH:MM) or 12-hour (H:MM AM/PM) formats
+const timeRegex = /\b(?:[01]?\d|2[0-3]):[0-5]\d(?:\s?[AP]M)?\b/gi;
+
+// Extract time strings
+const times = rawText.match(timeRegex) || [];
+
+// Log results
+console.log("Extracted times:");
+console.log(times, "\n");
