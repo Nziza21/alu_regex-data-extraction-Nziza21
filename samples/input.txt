@@ -4,8 +4,8 @@ Secondary contact email: samuel.nziza@company.co.uk
 The user visited https://nziza-portfolio.dev/projects and later accessed
 https://api.randomlogs.io/v1/users?id=4821.
 
-For assistance, call (123) 456-7890 or 123-456-7890 during office hours.
-Emergency line: 123.456.7890
+For assistance, call 078 123 4567 or 078-765-4321 during office hours.
+Emergency line: +250 78 987 6543
 
 Payment was attempted using credit card number 1234-5678-9012-3456.
 Another card on file: 4321 8765 2109 6543

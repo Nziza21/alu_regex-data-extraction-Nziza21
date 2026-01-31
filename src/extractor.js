@@ -43,3 +43,20 @@ const urls = rawText.match(urlRegex) || [];
 // Log the results
 console.log("Extracted URLs:");
 console.log(urls, "\n");
+
+// --------------------
+// Rwandan phone number extraction
+// --------------------
+
+// Matches:
+// 078 123 4567
+// 078-765-4321
+// +250 78 987 6543
+const rwandaPhoneRegex = /\b(?:\+250\s?)?0\d{2}[-\s]?\d{3}[-\s]?\d{4}\b/g;
+
+// Extract phone numbers from raw text
+const phoneNumbers = rawText.match(rwandaPhoneRegex) || [];
+
+// Log results
+console.log("Extracted phone numbers:");
+console.log(phoneNumbers, "\n");
