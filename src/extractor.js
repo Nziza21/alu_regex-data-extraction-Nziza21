@@ -28,3 +28,18 @@ const emails = rawText.match(emailRegex) || [];
 // Log the results
 console.log("Extracted emails:");
 console.log(emails, "\n");
+
+// --------------------
+// URL extraction
+// --------------------
+
+// This regex matches URLs that start with http or https
+// It avoids javascript: and other unsafe protocols
+const urlRegex = /\bhttps?:\/\/[^\s"<>()]+\b/g;
+
+// Extract URLs from the raw text
+const urls = rawText.match(urlRegex) || [];
+
+// Log the results
+console.log("Extracted URLs:");
+console.log(urls, "\n");
